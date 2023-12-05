@@ -1,0 +1,362 @@
+{
+    "name": "DroneControls",
+    "maps": [
+        {
+            "name": "DroneDiscoverMode",
+            "id": "68cec9b1-a9a5-4726-addf-41611312f08c",
+            "actions": [
+                {
+                    "name": "RightController",
+                    "type": "PassThrough",
+                    "id": "e4271363-3289-4b34-9174-615d691219cb",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftController",
+                    "type": "PassThrough",
+                    "id": "fa0dbeed-f91c-4636-960a-700dc4ef4012",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "358d0b34-88c6-4d10-b18b-94b2794e9390",
+                    "path": "<XRController>{RightHand}/primary2DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e337dd67-59b6-49ff-893c-041f9f3c3bdb",
+                    "path": "<XRController>{LeftHand}/primary2DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftController",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "DroneSimulationMode",
+            "id": "7e81c29c-32b0-45a9-ad96-798dfb49ce4e",
+            "actions": [
+                {
+                    "name": "Yaw",
+                    "type": "PassThrough",
+                    "id": "1efe7f5a-0e68-45d2-8593-8758cdcbf2fd",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pitch",
+                    "type": "PassThrough",
+                    "id": "90986280-a211-41a2-afb5-b3d37b6e9308",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Roll",
+                    "type": "PassThrough",
+                    "id": "34e1a530-e469-42dd-87e9-605e25d88025",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ThrottleUp",
+                    "type": "PassThrough",
+                    "id": "01696553-dc54-460f-a2e1-7fdfe35dc1b1",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DevicePositionRight",
+                    "type": "PassThrough",
+                    "id": "b7747c98-ce7d-4477-834d-0d007ec53d18",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Calibrated",
+                    "type": "PassThrough",
+                    "id": "b5a21ab4-cef1-4ab5-bc79-969a7a62d483",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ThrottleDown",
+                    "type": "PassThrough",
+                    "id": "fb023f8e-23ff-4ed3-95be-1a357e221524",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CameraSwitcher",
+                    "type": "Button",
+                    "id": "54af9d1c-7108-437c-92ef-c90d901ad802",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "YawLeft",
+                    "type": "PassThrough",
+                    "id": "376eb68f-14a5-46e9-b455-d036a10f8ac9",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PitchLeft",
+                    "type": "PassThrough",
+                    "id": "718cc124-2ba7-42ef-91e4-8455fe86d082",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RollLeft",
+                    "type": "PassThrough",
+                    "id": "c0599cca-f6e5-471e-a5b0-d8e1b4dc783d",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HandSwap",
+                    "type": "Button",
+                    "id": "05b3e1cc-a929-4162-972e-32c1aa49d742",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ArmDisarmR",
+                    "type": "PassThrough",
+                    "id": "fec6c3a3-b8ff-4139-8b66-94b49cd6d73b",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ArmDisarmL",
+                    "type": "PassThrough",
+                    "id": "7b6b970b-b980-4ee6-9b59-451c24e1884c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "445f17ca-3206-4699-82ea-3d9ff02aba67",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c14904e2-cf67-46de-ac92-3467a2eb540b",
+                    "path": "<XRController>{RightHand}/deviceRotation/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yaw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b03b03f-484e-4329-9048-4f4eb51b3130",
+                    "path": "<XRController>{RightHand}/deviceRotation/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pitch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e691108-80ef-4c58-874d-e926d680e703",
+                    "path": "<XRController>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThrottleUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2cf78ce5-1d3d-4ba7-bc35-0f822d50520b",
+                    "path": "<XRController>{RightHand}/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DevicePositionRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1fbdbd32-a665-409c-badc-2478aa04c67f",
+                    "path": "<XRController>/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Calibrated",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6139082f-272e-4752-84f9-c163ef143762",
+                    "path": "<XRController>/grip",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThrottleDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "51b9df78-b31b-4dce-8c15-16b37b1df451",
+                    "path": "<XRController>{RightHand}/deviceRotation/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba7495a0-2307-4c34-8b1b-7268197279b3",
+                    "path": "<XRController>/{Primary2DAxisClick}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraSwitcher",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "75edb294-2690-437e-b18f-9f6eb75373ae",
+                    "path": "<XRController>{LeftHand}/deviceRotation/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "YawLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f5c8fec7-2185-4317-86df-3276c6f455d9",
+                    "path": "<XRController>{LeftHand}/deviceRotation/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PitchLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea814eb9-c682-40f7-8054-722e8601be27",
+                    "path": "<XRController>{LeftHand}/deviceRotation/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RollLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8bd6a236-5cc1-4d7d-b531-44de2b046da4",
+                    "path": "<XRController>/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HandSwap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "251df45c-47e5-4d84-94c7-c7f3bb0c8f1a",
+                    "path": "<XRController>{RightHand}/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ArmDisarmR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a5586641-fca4-4950-a3a2-85088996f3c4",
+                    "path": "<XRController>{LeftHand}/{Primary2DAxis}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ArmDisarmL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a6162d43-8362-496d-955f-d04ccf5b3119",
+                    "path": "<XRController>{LeftHand}/{MenuButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
