@@ -51,16 +51,8 @@ namespace BernatAEX
         private float RollOG;
 
         private float initialvalue;
-        private bool rightActive = true;
+        public bool rightActive = true;
 
-        #endregion
-
-        #region Main Methods
-        // Update is called once per frame
-        void Update()
-        {
-            
-        }
         #endregion
 
         #region Methods
@@ -218,11 +210,13 @@ namespace BernatAEX
             if (rightActive)
             {
                 rightActive = false;
+                calibrated = 1.0f;
+
             }
             else
             {
                 rightActive = true;
-                
+                calibrated = 1.0f;
             }
             //Debug.Log(rightActive);
         }

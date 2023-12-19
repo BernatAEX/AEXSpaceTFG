@@ -9,9 +9,8 @@ namespace BernatAEX
 {
     [RequireComponent(typeof(SpeedGauges))]
     [RequireComponent(typeof(HeadingGauge))]
-    [RequireComponent(typeof(ActiveHand))]
     [RequireComponent(typeof(AltitudeIndicator))]
-    public class HUDManager : MonoBehaviour
+    public class HUDManagerIR : MonoBehaviour
     {
         [Header("Speed Gauge")]
         [SerializeField] private SpeedGauges speedGauges;
@@ -30,10 +29,6 @@ namespace BernatAEX
         [SerializeField] private HeadingGauge headingGauge;
         [SerializeField] private TextMeshProUGUI HdngLabel;
 
-        [Header("Active Hand Indicator")]
-        [SerializeField] private ActiveHand activeHand;
-        [SerializeField] private TextMeshProUGUI HandLabel;
-
         [Header("Altitude Gauge")]
         [SerializeField] private AltitudeIndicator altitudeIndicator;
         [SerializeField] private TextMeshProUGUI AltLabel;
@@ -45,7 +40,6 @@ namespace BernatAEX
             //speedGauge.Subscribe(UpdateHorizontalSpeed);
             speedGauges.Subscribe(UpdateSpeed);
             headingGauge.Subscribe(UpdateHeading);
-            activeHand.Subscribe(UpdateHand);
             altitudeIndicator.Subscribe(UpdateAltitude);
         }
 
@@ -55,7 +49,6 @@ namespace BernatAEX
             //speedGauge.Unsubscribe(UpdateHorizontalSpeed);
             speedGauges.Unsubscribe(UpdateSpeed);
             headingGauge.Unsubscribe(UpdateHeading);
-            activeHand.Unsubscribe(UpdateHand);
             altitudeIndicator.Unsubscribe(UpdateAltitude);
         }
 
@@ -70,21 +63,6 @@ namespace BernatAEX
             if(HdngLabel != null)
             {
                 HdngLabel.text = ((int)yaw) + "º";
-            }
-        }
-
-        void UpdateHand(bool hand)
-        {
-            if(HandLabel != null) 
-            {
-                if(hand)
-                {
-                    HandLabel.text = "Active Controller: Right";
-                }
-                else
-                {
-                    HandLabel.text = "Active Controller: Left";
-                }
             }
         }
 

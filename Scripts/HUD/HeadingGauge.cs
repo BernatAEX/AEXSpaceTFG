@@ -7,13 +7,13 @@ namespace BernatAEX
     public class HeadingGauge : MonoBehaviour
     {
         [SerializeField] private Transform Drone;
-        public delegate void HeadingUpdateHandler(float Heading);
+        public delegate void HeadingUpdateHandler(float yaw);
         public event HeadingUpdateHandler OnHeadingUpdate;
 
         void Update()
         {
             float yaw = Drone.eulerAngles.y;
-            Debug.Log(yaw);
+            //Debug.Log(yaw);
             NotifyObservers(yaw);
         }
 

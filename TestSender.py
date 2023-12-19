@@ -3,7 +3,7 @@ import time
 import random
 import re
 
-host, port = "127.0.0.1", 25001
+host, port = "0.0.0.0", 25001
 #data = "41.414282712166354, 2.0195841960766345, 60.0"
 NSpeed = 6.0
 ESpeed = 0
