@@ -31,18 +31,24 @@ namespace BernatAEX
         Vector3 formerPosition;
 
         Vector3 SpeedNED;
+        public float Hspeed;
+        public float Vspeed;
+        public bool isonAir;
 
         float Heading;
         float formerHeading;
-
-        /*public Transform playerTransform;
-        public float earthRadius = 6371000.0f;*/
+        private bool firstMessage = true;
 
 
-        void Start()
+        void Awake()
         {
             ConnectToBroker();
             map = FindObjectOfType<AbstractMap>();
+            string addr = PlayerPrefs.GetString("Broker Address");
+            if (addr != "")
+            {
+                brokerAddress = addr;
+            }
         }
 
         void ConnectToBroker()
@@ -83,14 +89,20 @@ namespace BernatAEX
 
             velocity = new Vector3(
                 float.Parse(stringArray[3]),
-                float.Parse(stringArray[4]),
-                float.Parse(stringArray[5]));
+                float.Parse(stringArray[5]),
+                float.Parse(stringArray[4]));
 
             heading = float.Parse(stringArray[6]);
         }
 
         void Update()
         {
+            if (firstMessage)
+            {
+                map.UpdateMap(LatLong);
+                firstMessage = false;
+            }
+
             int tileZoom = (int)Math.Round(map.Zoom);
             float tileScale = map.WorldRelativeScale;
 
@@ -118,8 +130,20 @@ namespace BernatAEX
                 formerHeading = Heading;
             }
 
+            Hspeed = (float)Math.Sqrt(SpeedNED.x * SpeedNED.x + SpeedNED.z * SpeedNED.z);
+            Vspeed = SpeedNED.y;
+
             Vector3 localSpeedNED = transform.InverseTransformDirection(SpeedNED);
             transform.Translate(Time.deltaTime * localSpeedNED * tileScale);
+
+            if (height >= 1 || SpeedNED != Vector3.zero)
+            {
+                isonAir = true;
+            }
+            else
+            {
+                isonAir = false;
+            }
         }
 
         void OnDestroy()

@@ -9,8 +9,8 @@ public class ShowKeyboard : MonoBehaviour
 
     private TMP_InputField inputField;
 
-    public float distance = 0.5f;
-    public float verticalOffset = -0.5f;
+    public float distance = 1.0f;
+    public float verticalOffset = -0.1f;
 
     public Transform positionSource;
 
@@ -39,6 +39,7 @@ public class ShowKeyboard : MonoBehaviour
         Vector3 targetPosition = positionSource.position + direction * distance + Vector3.up * verticalOffset;
 
         NonNativeKeyboard.Instance.RepositionKeyboard(targetPosition);
+        Debug.Log("Keyboard ON");
 
         SetCaretColorAlpha(1);
 
@@ -50,6 +51,7 @@ public class ShowKeyboard : MonoBehaviour
     {
         SetCaretColorAlpha(0);
         NonNativeKeyboard.Instance.OnClosed -= Instance_onClosed;
+        Debug.Log("Keyboard ON");
     }
 
     public void SetCaretColorAlpha(float value)

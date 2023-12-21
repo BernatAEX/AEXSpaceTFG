@@ -11,6 +11,7 @@ namespace BernatAEX
     [RequireComponent(typeof(HeadingGauge))]
     [RequireComponent(typeof(ActiveHand))]
     [RequireComponent(typeof(AltitudeIndicator))]
+    
     public class HUDManager : MonoBehaviour
     {
         [Header("Speed Gauge")]
@@ -79,11 +80,11 @@ namespace BernatAEX
             {
                 if(hand)
                 {
-                    HandLabel.text = "Active Controller: Right";
+                    HandLabel.text = "Right";
                 }
                 else
                 {
-                    HandLabel.text = "Active Controller: Left";
+                    HandLabel.text = "Left";
                 }
             }
         }

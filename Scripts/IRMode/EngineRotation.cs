@@ -6,6 +6,9 @@ namespace BernatAEX
 {
     public class EngineRotation : MonoBehaviour
     {
+        [Header("MQTT Receiver")]
+        public PositionListenerMQTT reception;
+
         [Header("Propeller Properties")]
         [SerializeField] private Transform propeller;
         [SerializeField] private float rotationSpeed = 300f;
@@ -18,11 +21,12 @@ namespace BernatAEX
 
         void HandlePropellers()
         {
-            if (!propeller)
+            if (!propeller || !reception.isonAir)
             {
                 return;
             }
 
+            
             propeller.Rotate(Vector3.up, rotationSpeed);
         }
 

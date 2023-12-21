@@ -7,13 +7,13 @@ using TMPro;
 
 namespace BernatAEX
 {
-    [RequireComponent(typeof(SpeedGauges))]
+    [RequireComponent(typeof(SpeedGaugesIR))]
     [RequireComponent(typeof(HeadingGauge))]
     [RequireComponent(typeof(AltitudeIndicator))]
     public class HUDManagerIR : MonoBehaviour
     {
         [Header("Speed Gauge")]
-        [SerializeField] private SpeedGauges speedGauges;
+        [SerializeField] private SpeedGaugesIR speedGaugesIR;
         [SerializeField] private RectTransform needleSpeed;
         private float maxSpeed = 160.0f;
         private float minSpeedArrowAngle = -90.0f;
@@ -38,7 +38,7 @@ namespace BernatAEX
         {
             // Subsribe to methods when starting the object
             //speedGauge.Subscribe(UpdateHorizontalSpeed);
-            speedGauges.Subscribe(UpdateSpeed);
+            speedGaugesIR.Subscribe(UpdateSpeed);
             headingGauge.Subscribe(UpdateHeading);
             altitudeIndicator.Subscribe(UpdateAltitude);
         }
@@ -47,7 +47,7 @@ namespace BernatAEX
         {
             // Unsubscribe to methods when destroying the object
             //speedGauge.Unsubscribe(UpdateHorizontalSpeed);
-            speedGauges.Unsubscribe(UpdateSpeed);
+            speedGaugesIR.Unsubscribe(UpdateSpeed);
             headingGauge.Unsubscribe(UpdateHeading);
             altitudeIndicator.Unsubscribe(UpdateAltitude);
         }

@@ -108,7 +108,15 @@ namespace BernatAEX
                 }
 
                 pitch = pitch - PitchOG;
-                //Debug.Log(pitch);
+                if (pitch < -0.275f)
+                {
+                    pitch = (-0.275f);
+                }
+                else if (pitch > 0.275f)
+                {
+                    pitch = 0.275f;
+                }
+                Debug.Log(pitch);
             }
         }
 
