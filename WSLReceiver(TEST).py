@@ -18,7 +18,7 @@ import paho.mqtt.client as mqtt
 
 def on_connect(client, userdata, flags, rc):
     print(f"Conectado con el código de resultado {rc}")
-    client.subscribe("Aexspace/")
+    client.subscribe("Detections/")
 
 def on_message(client, userdata, msg):
     print(f"Datos recibidos: {msg.payload.decode()}")

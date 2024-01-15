@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +8,9 @@ namespace BernatAEX
 {
     [RequireComponent(typeof(SpeedGauges))]
     [RequireComponent(typeof(HeadingGauge))]
-    [RequireComponent(typeof(ActiveHand))]
     [RequireComponent(typeof(AltitudeIndicator))]
     [RequireComponent(typeof(ArtificialHorizon))]
-    public class HUDManager : MonoBehaviour
+    public class HUDManagerDM : MonoBehaviour
     {
         [Header("Speed Gauge")]
         [SerializeField] private SpeedGauges speedGauges;
@@ -31,10 +29,6 @@ namespace BernatAEX
         [SerializeField] private HeadingGauge headingGauge;
         [SerializeField] private TextMeshProUGUI HdngLabel;
 
-        [Header("Active Hand Indicator")]
-        [SerializeField] private ActiveHand activeHand;
-        [SerializeField] private TextMeshProUGUI HandLabel;
-
         [Header("Altitude Gauge")]
         [SerializeField] private AltitudeIndicator altitudeIndicator;
         [SerializeField] private TextMeshProUGUI AltLabel;
@@ -43,14 +37,12 @@ namespace BernatAEX
         [SerializeField] private ArtificialHorizon artificialHorizon;
         [SerializeField] private RectTransform horizonBall;
 
-
         void Start()
         {
             // Subsribe to methods when starting the object
             //speedGauge.Subscribe(UpdateHorizontalSpeed);
             speedGauges.Subscribe(UpdateSpeed);
             headingGauge.Subscribe(UpdateHeading);
-            activeHand.Subscribe(UpdateHand);
             altitudeIndicator.Subscribe(UpdateAltitude);
             artificialHorizon.Subscribe(UpdateHorizon);
         }
@@ -61,7 +53,6 @@ namespace BernatAEX
             //speedGauge.Unsubscribe(UpdateHorizontalSpeed);
             speedGauges.Unsubscribe(UpdateSpeed);
             headingGauge.Unsubscribe(UpdateHeading);
-            activeHand.Unsubscribe(UpdateHand);
             altitudeIndicator.Unsubscribe(UpdateAltitude);
             artificialHorizon.Unsubscribe(UpdateHorizon);
         }
@@ -74,24 +65,9 @@ namespace BernatAEX
 
         void UpdateHeading(float yaw)
         {
-            if(HdngLabel != null)
+            if (HdngLabel != null)
             {
                 HdngLabel.text = ((int)yaw) + "º";
-            }
-        }
-
-        void UpdateHand(bool hand)
-        {
-            if(HandLabel != null) 
-            {
-                if(hand)
-                {
-                    HandLabel.text = "Right";
-                }
-                else
-                {
-                    HandLabel.text = "Left";
-                }
             }
         }
 

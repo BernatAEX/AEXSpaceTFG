@@ -9,7 +9,7 @@ namespace BernatAEX
     {
         #region Variables
         [Header("Engine Properties")]
-        private float maxThrust = 1000.0f; //Thrust total del drone
+        private float maxThrust = 600.0f; //Thrust total del drone
 
         [Header("Propeller Properties")]
         [SerializeField] private Transform propeller;

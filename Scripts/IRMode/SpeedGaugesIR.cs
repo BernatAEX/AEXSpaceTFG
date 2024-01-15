@@ -11,10 +11,6 @@ namespace BernatAEX
         public event SpeedUpdateHandler OnSpeedUpdate;
         private Vector2 speed;
 
-        void Start()
-        {
-        }
-
         void Update()
         {
 

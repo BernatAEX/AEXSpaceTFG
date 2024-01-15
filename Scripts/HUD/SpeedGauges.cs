@@ -40,7 +40,7 @@ namespace BernatAEX
             float speedY = rb.velocity.y;
             float speedZ = rb.velocity.z;
 
-            float horizontalSpeed = Mathf.Sqrt((speedX * speedX + speedZ * speedZ));
+            float horizontalSpeed = 3.6f*Mathf.Sqrt((speedX * speedX + speedZ * speedZ));
             float verticalspeed = speedY + 40; //We add 40 m/s to have capability to add negative numbers
             Vector2 speeds = new Vector2(horizontalSpeed, verticalspeed);
             NotifyObservers(speeds);

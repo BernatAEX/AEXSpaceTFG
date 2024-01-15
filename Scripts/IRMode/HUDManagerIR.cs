@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +9,7 @@ namespace BernatAEX
     [RequireComponent(typeof(SpeedGaugesIR))]
     [RequireComponent(typeof(HeadingGauge))]
     [RequireComponent(typeof(AltitudeIndicator))]
+    [RequireComponent(typeof(ArtificialHorizonIR))]
     public class HUDManagerIR : MonoBehaviour
     {
         [Header("Speed Gauge")]
@@ -33,6 +33,9 @@ namespace BernatAEX
         [SerializeField] private AltitudeIndicator altitudeIndicator;
         [SerializeField] private TextMeshProUGUI AltLabel;
 
+        [Header("Artifitial Horizon")]
+        [SerializeField] private ArtificialHorizonIR artificialHorizon;
+        [SerializeField] private RectTransform horizonBall;
 
         void Start()
         {
@@ -41,6 +44,7 @@ namespace BernatAEX
             speedGaugesIR.Subscribe(UpdateSpeed);
             headingGauge.Subscribe(UpdateHeading);
             altitudeIndicator.Subscribe(UpdateAltitude);
+            artificialHorizon.Subscribe(UpdateHorizon);
         }
 
         void OnDestroy()
@@ -50,6 +54,7 @@ namespace BernatAEX
             speedGaugesIR.Unsubscribe(UpdateSpeed);
             headingGauge.Unsubscribe(UpdateHeading);
             altitudeIndicator.Unsubscribe(UpdateAltitude);
+            artificialHorizon.Unsubscribe(UpdateHorizon);
         }
 
         void UpdateSpeed(Vector2 Speed)
@@ -70,9 +75,25 @@ namespace BernatAEX
         {
             if (AltLabel != null)
             {
-                AltLabel.text = ((int)alt) + " ft";
+                AltLabel.text = ((int)(alt*(1.38f*95)/37)) + " m";
             }
         }
 
+        void UpdateHorizon(Vector2 RollPitch)
+        {
+            float roll = RollPitch.x;
+            float pitch = RollPitch.y;
+
+            if(pitch < -25.0f)
+            {
+                pitch = -25.0f;
+            }
+            else if(pitch > 25.0f)
+            {
+                pitch = 25.0f;
+            }
+            horizonBall.localEulerAngles = new Vector3(0, 0, roll);
+            horizonBall.localPosition = new Vector3(0, -0.826f * pitch + 0.13f, 0);
+        }
     }
 }

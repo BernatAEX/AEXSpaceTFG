@@ -13,7 +13,7 @@ namespace BernatAEX
         void Update()
         {
             float altitude = Drone.position.y;
-            NotifyObservers(altitude/0.3048f);
+            NotifyObservers(altitude);
         }
 
         public void Subscribe(AltitudeUpdateHandler observer)

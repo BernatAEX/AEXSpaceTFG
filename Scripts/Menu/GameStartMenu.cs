@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 namespace BernatAEX
 {
@@ -12,29 +13,29 @@ namespace BernatAEX
         [Header("UI Pages")]
         public GameObject mainMenu;
         public GameObject modeMenu;
-        public GameObject options;
-        public GameObject about;
-        public GameObject DiscoverMenu;
-        public GameObject InverseRealityMenu;
-        public GameObject SimulationMenu;
-        public GameObject NewLocationMenu;
-        public GameObject LocationDWN;
+        [SerializeField] private GameObject options;
+        [SerializeField] private GameObject about;
+        [SerializeField] private GameObject DiscoverMenu;
+        [SerializeField] private GameObject InverseRealityMenu;
+        [SerializeField] private GameObject SimulationMenu;
+        [SerializeField] private GameObject NewLocationMenu;
+        [SerializeField] private GameObject LocationDWN;
 
         [Header("Main Menu Buttons")]
-        public Button startButton;
-        public Button optionButton;
-        public Button aboutButton;
-        public Button quitButton;
-        public Button DMButton;
-        public Button IRMButton;
-        public Button SMButton;
-        public Button NewLocationDiscover;
-        public Button DeleteLocationDiscover;
-        public Button BackDiscoverLocation;
-        public Button RunDiscoverMode;
-        public Button SaveLocation;
-        public Button BackLocation;
-        public Button NewLocationSimulation;
+        [SerializeField] private Button startButton;
+        [SerializeField] private Button optionButton;
+        [SerializeField] private Button aboutButton;
+        [SerializeField] private Button quitButton;
+        [SerializeField] private Button DMButton;
+        [SerializeField] private Button IRMButton;
+        [SerializeField] private Button SMButton;
+        [SerializeField] private Button NewLocationDiscover;
+        [SerializeField] private Button DeleteLocationDiscover;
+        [SerializeField] private Button BackDiscoverLocation;
+        [SerializeField] private Button RunDiscoverMode;
+        [SerializeField] private Button SaveLocation;
+        [SerializeField] private Button BackLocation;
+        [SerializeField] private Button NewLocationSimulation;
         public Button BackSimulation;
         public Button RunSimulationMode;
         public Button RunIP;
@@ -224,21 +225,24 @@ namespace BernatAEX
         {
             LSManager.LoadData(PlacesDropdown.value);
             HideAll();
-            SceneTransitionManager.singleton.GoToSceneAsync(1);
+            //SceneTransitionManager.singleton.GoToSceneAsync(1);
+            //SceneManager.LoadScene("DiscoverMode");
         }
 
         public void RunSimulation()
         {
             LSManager.LoadData(PlacesDropdown.value);
             HideAll();
-            SceneTransitionManager.singleton.GoToSceneAsync(2);
+            //SceneTransitionManager.singleton.GoToSceneAsync(2);
+            //SceneManager.LoadScene("SimulationMode");
         }
 
         public void RunIRmode()
         {
             PlayerPrefs.SetString("Broker Address", JsonUtility.ToJson(IPInput.text));
             HideAll();
-            SceneTransitionManager.singleton.GoToSceneAsync(3);
+            //SceneTransitionManager.singleton.GoToSceneAsync(3);
+            //SceneManager.LoadScene("IRMode");
         }
 
         public void OpenKeyboard()

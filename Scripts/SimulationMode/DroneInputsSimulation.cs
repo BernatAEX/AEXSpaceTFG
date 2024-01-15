@@ -116,7 +116,6 @@ namespace BernatAEX
                 {
                     pitch = 0.275f;
                 }
-                Debug.Log(pitch);
             }
         }
 
@@ -242,6 +241,7 @@ namespace BernatAEX
         private void OnPause(InputValue value)
         {
             pause = value.Get<float>();
+            Debug.Log("Pause pressed!");
         }
 
         #endregion
